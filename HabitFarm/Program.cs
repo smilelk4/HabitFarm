@@ -1,3 +1,8 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-Console.WriteLine("Hello, World!");
+﻿namespace HabitFarm;
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Hello Habit Farm!");
+    }
+}
