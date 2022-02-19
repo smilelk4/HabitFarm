@@ -23,15 +23,15 @@ public class TextCopy
   
   public static void WriteIntro()
   {
-    Console.WriteLine(TextCopy.title);
-    Console.WriteLine(TextCopy.credits);
-    Console.WriteLine(TextCopy.jam);
-    Console.WriteLine(TextCopy.introduction);
+    Console.WriteLine(title);
+    Console.WriteLine(credits);
+    Console.WriteLine(jam);
+    Console.WriteLine(introduction);
   }
 
   public static void PromptForName()
   {
-    Console.WriteLine(TextCopy.promptName);
+    Console.WriteLine(promptName);
     PlayerName = Console.ReadLine();
     Console.WriteLine($"\nNice to meet you, {PlayerName}!");
   }
