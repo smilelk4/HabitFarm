@@ -26,13 +26,24 @@ public class TextCopy
     Console.WriteLine(title);
     Console.WriteLine(credits);
     Console.WriteLine(jam);
-    Console.WriteLine(introduction);
+
+    if (SaveData.GetIfFileExists())
+    {
+      PlayerName = SaveData.GetSaveData()?.PlayerName;
+      Console.WriteLine($"Welcome back, sweet, sweet, {PlayerName}. :) :) :D");
+    }
+    else
+    {
+      Console.WriteLine(introduction);
+      SavePlayerName();
+      Console.WriteLine($"\nNice to meet you, {PlayerName}! Created a new save file.");
+    }
   }
 
-  public static void PromptForName()
+  private static void SavePlayerName()
   {
     Console.WriteLine(promptName);
     PlayerName = Console.ReadLine();
-    Console.WriteLine($"\nNice to meet you, {PlayerName}! Created a new save file.");
+    SaveData.CreateSaveData(PlayerName);
   }
 }

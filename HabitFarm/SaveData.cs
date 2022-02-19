@@ -18,16 +18,21 @@ public class SaveData
     {
         SaveDataRecord newSaveData = new SaveDataRecord(PlayerName:playerName, CreatedAt: DateTime.Now, UpdatedAt: DateTime.Now);
         string saveDataJson = JsonSerializer.Serialize(newSaveData);
-        Console.WriteLine(saveDataJson);
-        Console.WriteLine(Path.GetFullPath("."));
+        // how to get current path
+        // Console.WriteLine(Path.GetFullPath("."));
         File.WriteAllText(_fileName, saveDataJson);
         GetSaveData();
     }
 
-    public static void GetSaveData()
+    public static SaveDataRecord? GetSaveData()
     {
         var savedDataJson = File.ReadAllText(_fileName);
         var saveData = JsonSerializer.Deserialize<SaveDataRecord>(savedDataJson);
-        Console.WriteLine(saveData.PlayerName);
+        return saveData;
+    }
+
+    public static bool GetIfFileExists()
+    {
+        return File.Exists(_fileName);
     }
 }
