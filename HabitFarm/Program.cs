@@ -2,9 +2,12 @@
 
 class Program
 {
+    private static string title = "Habit Farm";
     static void Main()
     {
-        Console.WriteLine("Hello Habit Farm!");
-        TextCopy.WriteIntro();
+        Console.Title = title;
+        new Screen();
+        
+        Console.WriteLine("Good bye fellas!");
     }
 }
