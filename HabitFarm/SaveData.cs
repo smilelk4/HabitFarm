@@ -10,14 +10,15 @@ public record SaveDataRecord(
 
 public class SaveData
 {
-    private static string _fileName = "saveData.txt";
+    private static string _fileName = "saveData.json";
 
     public static void CreateSaveData(string playerName)
     {
+        // TIP how to get current path
+        // Console.WriteLine(Path.GetFullPath("."));
+
         SaveDataRecord newSaveData = new SaveDataRecord(PlayerName:playerName, CreatedAt: DateTime.Now, UpdatedAt: DateTime.Now);
         string saveDataJson = JsonSerializer.Serialize(newSaveData);
-        // how to get current path
-        // Console.WriteLine(Path.GetFullPath("."));
         File.WriteAllText(_fileName, saveDataJson);
         GetSaveData();
     }
