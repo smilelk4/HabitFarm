@@ -1,4 +1,6 @@
 using System.IO;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace HabitFarm;
 
@@ -10,12 +12,22 @@ public record SaveDataRecord(
 
 public class SaveData
 {
-    private string _fileName = "saveData.txt";
+    private static string _fileName = "saveData.txt";
 
     public static void CreateSaveData(string playerName)
     {
         SaveDataRecord newSaveData = new SaveDataRecord(PlayerName:playerName, CreatedAt: DateTime.Now, UpdatedAt: DateTime.Now);
-        Console.WriteLine(newSaveData);
-        // File.WriteAllText(_fileName, );
+        string saveDataJson = JsonSerializer.Serialize(newSaveData);
+        Console.WriteLine(saveDataJson);
+        Console.WriteLine(Path.GetFullPath("."));
+        File.WriteAllText(_fileName, saveDataJson);
+        GetSaveData();
+    }
+
+    public static void GetSaveData()
+    {
+        var savedDataJson = File.ReadAllText(_fileName);
+        var saveData = JsonSerializer.Deserialize<SaveDataRecord>(savedDataJson);
+        Console.WriteLine(saveData.PlayerName);
     }
 }
