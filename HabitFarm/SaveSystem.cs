@@ -8,7 +8,7 @@ public record SaveDataRecord(
     DateTime UpdatedAt
 );
 
-public class SaveData
+public static class SaveSystem
 {
     private static string _fileName = "saveData.json";
 

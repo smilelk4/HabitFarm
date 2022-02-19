@@ -36,7 +36,7 @@ public class TextCopy
   private static string promptName = $"\nWhat is your name? {inputIndicator}";
 
   // properties
-  public static string? PlayerName { get; private set; }
+  private static string? PlayerName { get; set; }
 
   //  methods
   public static void WriteIntro()
@@ -45,11 +45,10 @@ public class TextCopy
     Console.WriteLine(credits);
     Console.WriteLine(jam);
 
-    if (SaveData.GetIfFileExists())
+    if (SaveSystem.GetIfFileExists())
     {
-      PlayerName = SaveData.GetSaveData()?.PlayerName;
+      PlayerName = SaveSystem.GetSaveData()?.PlayerName;
       GreetByTimeOfDay();
-      // Console.WriteLine($"{}, sweet, sweet, {PlayerName}. :) :) :D");
     }
     else
     {
@@ -63,7 +62,7 @@ public class TextCopy
   {
     Console.WriteLine(promptName);
     PlayerName = Console.ReadLine();
-    SaveData.CreateSaveData(PlayerName);
+    SaveSystem.CreateSaveData(PlayerName);
   }
 
   private static void GreetByTimeOfDay()
@@ -72,23 +71,19 @@ public class TextCopy
     TimeSpan currentTime = currentDateTime.TimeOfDay;
 
     PartOfDay morning = new PartOfDay(
-      greeting: "Good morning",
-      timeStart: new TimeSpan(5, 0, 0)
+      "Good morning", new TimeSpan(5, 0, 0)
     );
 
     PartOfDay afternoon = new PartOfDay(
-      greeting: "Good afternoon",
-      timeStart: new TimeSpan(12, 0, 0)
+     "Good afternoon", new TimeSpan(12, 0, 0)
     );
 
     PartOfDay evening = new PartOfDay(
-      greeting: "Good evening",
-      timeStart: new TimeSpan(18, 0, 0)
+       "Good evening", new TimeSpan(18, 0, 0)
     );
 
     PartOfDay night = new PartOfDay(
-      greeting: "Good night",
-      timeStart: new TimeSpan(21, 0, 0)
+       "Good night", new TimeSpan(21, 0, 0)
     );
 
     morning._isCurrentTime = currentTime >= morning._timeStart && currentTime < afternoon._timeStart;
@@ -96,7 +91,7 @@ public class TextCopy
     evening._isCurrentTime = currentTime >= evening._timeStart && currentTime < night._timeStart;
     night._isCurrentTime = currentTime >= night._timeStart && currentTime < night._timeStart;
 
-    PartOfDay[] partsOfDay = new PartOfDay[] { morning, afternoon, evening, night };
+    PartOfDay[] partsOfDay = { morning, afternoon, evening, night };
 
     string? greeting = "";
 
@@ -112,52 +107,3 @@ public class TextCopy
     Console.WriteLine($"Today is {currentDateTime.ToLongDateString() }. The time is {currentDateTime.ToShortTimeString() }.");
   }
 }
-
-  // // Ways to build a dictionary
-  // // 1. 
-  // Dictionary<TimeOfDay, Dictionary<string, object>> greetingsConfig = new Dictionary<TimeOfDay, Dictionary<string, object>>()
-  // {
-  //   { TimeOfDay.Morning, new Dictionary<string,object>()
-  //     {
-  //       {"Greeting", "Good morning"},
-  //       {"TimeStart", new TimeSpan(5, 0, 0)},
-  //     }
-  //   },
-  //   { TimeOfDay.Afternoon, new Dictionary<string,object>()
-  //     {
-  //       {"Greeting", "Good afternoon"},
-  //       {"TimeStart", new TimeSpan(12, 0, 0)},
-  //     }
-  //   },
-  //   { TimeOfDay.Evening, new Dictionary<string,object>()
-  //     {
-  //       {"Greeting", "Good evening"},
-  //       {"TimeStart", new TimeSpan(18, 0, 0)},
-  //     }
-  //   },
-  //   { TimeOfDay.Night, new Dictionary<string, object>()
-  //     {
-  //       {"Greeting", "Good night"},
-  //       {"TimeStart", new TimeSpan(21, 0, 0)},
-  //     }
-  //   },
-  // };
-  
-  // // 2. 
-  // var Greetings2 = new Dictionary<string, string>();
-  // Greetings2["Morning"] = "Good morning";
-  // Greetings2["Afternoon"] = "Good afternoon";
-  // Greetings2["Evening"] = "Good evening";
-  // Greetings2["Night"] = "Good night";
-
-  // // 3.
-  // var greetings3 = new Dictionary<string, string>();
-  // greetings3.Add("morning", "Good morning");
-  // greetings3.Add("afternoon", "Good afternoon");
-  // greetings3.Add("evening", "Good evening");
-  // greetings3.Add("night", "Good night");
-
-  // bool isMorning = currentTime >= (TimeSpan)greetingsConfig[TimeOfDay.Morning]["TimeStart"] && currentTime < (TimeSpan)greetingsConfig[TimeOfDay.Afternoon]["TimeStart"];
-  // bool isAfternoon = currentTime >= (TimeSpan)greetingsConfig[TimeOfDay.Afternoon]["TimeStart"] && currentTime < (TimeSpan)greetingsConfig[TimeOfDay.Evening]["TimeStart"];
-  // bool isEvening = currentTime >= (TimeSpan)greetingsConfig[TimeOfDay.Evening]["TimeStart"] && currentTime < (TimeSpan)greetingsConfig[TimeOfDay.Night]["TimeStart"];
-  // bool isNight = currentTime >= (TimeSpan)greetingsConfig[TimeOfDay.Night]["TimeStart"] && currentTime < (TimeSpan)greetingsConfig[TimeOfDay.Morning]["TimeStart"];
