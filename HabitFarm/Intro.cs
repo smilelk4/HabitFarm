@@ -22,12 +22,12 @@ public class TextCopy
   private static string inputIndicator = "\n >>> ";
 
   private static string title = @"
- _    _       _     _ _     ______                   
-| |  | |     | |   (_) |   |  ____|                  
-| |__| | __ _| |__  _| |_  | |__ __ _ _ __ _ __ ___  
-|  __  |/ _` | '_ \| | __| |  __/ _` | '__| '_ ` _ \ 
-| |  | | (_| | |_) | | |_  | | | (_| | |  | | | | | |
-|_|  |_|\__,_|_.__/|_|\__| |_|  \__,_|_|  |_| |_| |_|
+       _    _       _       _     ______                   
+      | |  | |     | |   🍅| |   |  ____|                  
+      | |__| | __ _| |__  _| |_  | |__ __ _ _ __ _ __ ___  
+      |  __  |/  ` | '  \| | __| |  __/  ` | '__| '_ ` _ \ 
+      | |  | |  🍑 | 🥝  | | |_  | | |  🧅 | |  | | | | | |
+      |_|  |_|\__,_|_.__/|_|\__| |_|  \__,_|_|  |_| |_| |_|
 ";
   private static string credits = @"                    by
             Yuka Moribe & Alicia Kim";
@@ -36,7 +36,7 @@ public class TextCopy
   private static string promptName = $"\nWhat is your name? {inputIndicator}";
 
   // properties
-  private static string? PlayerName { get; set; }
+  public static string? PlayerName { get; set; }
 
   //  methods
   public static void WriteIntro()
@@ -47,7 +47,7 @@ public class TextCopy
 
     if (SaveSystem.GetIfFileExists())
     {
-      PlayerName = SaveSystem.GetSaveData()?.PlayerName;
+      PlayerName = (string)(SaveSystem.GetSaveData()["PlayerName"]).ToString();
       GreetByTimeOfDay();
     }
     else
@@ -62,7 +62,7 @@ public class TextCopy
   {
     Console.WriteLine(promptName);
     PlayerName = Console.ReadLine();
-    SaveSystem.CreateSaveData(PlayerName);
+    SaveSystem.CreateSaveData();
   }
 
   private static void GreetByTimeOfDay()
