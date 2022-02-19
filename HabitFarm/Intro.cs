@@ -1,11 +1,7 @@
 namespace HabitFarm;
 
-
-
-
 public class TextCopy
 {
-  
   public static string inputIndicator = " > ";
 
   public static string title = @"
@@ -24,19 +20,7 @@ public class TextCopy
   
   // property
   public static string? PlayerName { get; set;  }
-
-  // public static string  = "";
-  // public static string  = "";
-  // public static string  = "";
-  // public static string  = "";
-  // public static string  = "";
-  // public static string  = "";
-  // public static string  = "";
-  // public static string  = "";
-  // public static string  = "";
-  // public static string  = "";
-  // public static string  = "";
-
+  
   public static void WriteIntro()
   {
     Console.WriteLine(TextCopy.title);
@@ -51,6 +35,4 @@ public class TextCopy
     PlayerName = Console.ReadLine();
     Console.WriteLine($"\nNice to meet you, {PlayerName}!");
   }
-
-
 }
