@@ -1,17 +1,25 @@
 namespace HabitFarm;
 
-enum TimeOfDay
+public class PartOfDay
 {
-  Morning,
-  Afternoon,
-  Evening,
-  Night
-}
+  // fields
+  public string? _greeting;
+  public TimeSpan _timeStart;
+  public bool _isCurrentTime;
+
+  // constructor
+  public PartOfDay(string greeting, TimeSpan timeStart, bool isCurrentTime = false) // default value
+  {
+    _greeting = greeting;
+    _timeStart = timeStart;
+    _isCurrentTime = isCurrentTime;
+  }
+};
 
 public class TextCopy
 {
   // fields
-  private static string inputIndicator = " > ";
+  private static string inputIndicator = "\n >>> ";
 
   private static string title = @"
  _    _       _     _ _     ______                   
@@ -21,8 +29,8 @@ public class TextCopy
 | |  | | (_| | |_) | | |_  | | | (_| | |  | | | | | |
 |_|  |_|\__,_|_.__/|_|\__| |_|  \__,_|_|  |_| |_| |_|
 ";
-  private static string credits = @"                by
-      Yuka Moribe & Alicia Kim";
+  private static string credits = @"                    by
+            Yuka Moribe & Alicia Kim";
   private static string jam = "      for 'Regenerate Game Jam' (Feb 2022)";
   private static string introduction = "\n\n\nWelcome to Habit Farm, where you can grow healthy habits. Choose a plant for each habit, water them whenever you succeed, and watch your plants grow little by little.";
   private static string promptName = $"\nWhat is your name? {inputIndicator}";
@@ -61,56 +69,95 @@ public class TextCopy
   private static void GreetByTimeOfDay()
   {
     DateTime currentDateTime = DateTime.Now;
+    TimeSpan currentTime = currentDateTime.TimeOfDay;
 
-  // Ways to build a dictionary
-  // 1. 
-  Dictionary<TimeOfDay, Dictionary<string, object>> greetingsConfig = new Dictionary<TimeOfDay, Dictionary<string, object>>()
+    PartOfDay morning = new PartOfDay(
+      greeting: "Good morning",
+      timeStart: new TimeSpan(5, 0, 0)
+    );
+
+    PartOfDay afternoon = new PartOfDay(
+      greeting: "Good afternoon",
+      timeStart: new TimeSpan(12, 0, 0)
+    );
+
+    PartOfDay evening = new PartOfDay(
+      greeting: "Good evening",
+      timeStart: new TimeSpan(18, 0, 0)
+    );
+
+    PartOfDay night = new PartOfDay(
+      greeting: "Good night",
+      timeStart: new TimeSpan(21, 0, 0)
+    );
+
+    morning._isCurrentTime = currentTime >= morning._timeStart && currentTime < afternoon._timeStart;
+    afternoon._isCurrentTime = currentTime >= afternoon._timeStart && currentTime < evening._timeStart;
+    evening._isCurrentTime = currentTime >= evening._timeStart && currentTime < night._timeStart;
+    night._isCurrentTime = currentTime >= night._timeStart && currentTime < night._timeStart;
+
+    PartOfDay[] partsOfDay = new PartOfDay[] { morning, afternoon, evening, night };
+
+    string? greeting = "";
+
+    foreach (PartOfDay partOfDay in partsOfDay)
     {
-      { TimeOfDay.Morning, new Dictionary<string,object>()
-        {
-          {"Greeting", "Good morning"},
-          {"TimeStart", new TimeSpan(5, 0, 0)},
-        }
-      },
-      { TimeOfDay.Afternoon, new Dictionary<string,object>()
-        {
-          {"Greeting", "Good afternoon"},
-          {"TimeStart", new TimeSpan(12, 0, 0)},
-        }
-      },
-      { TimeOfDay.Evening, new Dictionary<string,object>()
-        {
-          {"Greeting", "Good evening"},
-          {"TimeStart", new TimeSpan(18, 0, 0)},
-        }
-      },
-      { TimeOfDay.Night, new Dictionary<string, object>()
-        {
-          {"Greeting", "Good night"},
-          {"TimeStart", new TimeSpan(21, 0, 0)},
-        }
-      },
-    };
-
-    // // 2. 
-    // var Greetings2 = new Dictionary<string, string>();
-    // Greetings2["Morning"] = "Good morning";
-    // Greetings2["Afternoon"] = "Good afternoon";
-    // Greetings2["Evening"] = "Good evening";
-    // Greetings2["Night"] = "Good night";
-
-    // // 3.
-    // var greetings3 = new Dictionary<string, string>();
-    // greetings3.Add("morning", "Good morning");
-    // greetings3.Add("afternoon", "Good afternoon");
-    // greetings3.Add("evening", "Good evening");
-    // greetings3.Add("night", "Good night");
-
-    if (currentDateTime.TimeOfDay > (TimeSpan)greetingsConfig[TimeOfDay.Morning]["TimeStart"])
-    {
-      Console.WriteLine($"\n\n{greetingsConfig[TimeOfDay.Morning]["Greeting"]}, sweet, beautiful, genius {PlayerName}!");
-      Console.WriteLine($"Today is {currentDateTime.ToLongDateString() }. The time is {currentDateTime.ToShortTimeString() }.");
+      if (partOfDay._isCurrentTime)
+      {
+        greeting = partOfDay._greeting;
+      }
     }
+
+    Console.WriteLine($"\n\n{greeting}, sweet, beautiful, genius {PlayerName}!");
+    Console.WriteLine($"Today is {currentDateTime.ToLongDateString() }. The time is {currentDateTime.ToShortTimeString() }.");
   }
 }
 
+  // // Ways to build a dictionary
+  // // 1. 
+  // Dictionary<TimeOfDay, Dictionary<string, object>> greetingsConfig = new Dictionary<TimeOfDay, Dictionary<string, object>>()
+  // {
+  //   { TimeOfDay.Morning, new Dictionary<string,object>()
+  //     {
+  //       {"Greeting", "Good morning"},
+  //       {"TimeStart", new TimeSpan(5, 0, 0)},
+  //     }
+  //   },
+  //   { TimeOfDay.Afternoon, new Dictionary<string,object>()
+  //     {
+  //       {"Greeting", "Good afternoon"},
+  //       {"TimeStart", new TimeSpan(12, 0, 0)},
+  //     }
+  //   },
+  //   { TimeOfDay.Evening, new Dictionary<string,object>()
+  //     {
+  //       {"Greeting", "Good evening"},
+  //       {"TimeStart", new TimeSpan(18, 0, 0)},
+  //     }
+  //   },
+  //   { TimeOfDay.Night, new Dictionary<string, object>()
+  //     {
+  //       {"Greeting", "Good night"},
+  //       {"TimeStart", new TimeSpan(21, 0, 0)},
+  //     }
+  //   },
+  // };
+  
+  // // 2. 
+  // var Greetings2 = new Dictionary<string, string>();
+  // Greetings2["Morning"] = "Good morning";
+  // Greetings2["Afternoon"] = "Good afternoon";
+  // Greetings2["Evening"] = "Good evening";
+  // Greetings2["Night"] = "Good night";
+
+  // // 3.
+  // var greetings3 = new Dictionary<string, string>();
+  // greetings3.Add("morning", "Good morning");
+  // greetings3.Add("afternoon", "Good afternoon");
+  // greetings3.Add("evening", "Good evening");
+  // greetings3.Add("night", "Good night");
+
+  // bool isMorning = currentTime >= (TimeSpan)greetingsConfig[TimeOfDay.Morning]["TimeStart"] && currentTime < (TimeSpan)greetingsConfig[TimeOfDay.Afternoon]["TimeStart"];
+  // bool isAfternoon = currentTime >= (TimeSpan)greetingsConfig[TimeOfDay.Afternoon]["TimeStart"] && currentTime < (TimeSpan)greetingsConfig[TimeOfDay.Evening]["TimeStart"];
+  // bool isEvening = currentTime >= (TimeSpan)greetingsConfig[TimeOfDay.Evening]["TimeStart"] && currentTime < (TimeSpan)greetingsConfig[TimeOfDay.Night]["TimeStart"];
+  // bool isNight = currentTime >= (TimeSpan)greetingsConfig[TimeOfDay.Night]["TimeStart"] && currentTime < (TimeSpan)greetingsConfig[TimeOfDay.Morning]["TimeStart"];
