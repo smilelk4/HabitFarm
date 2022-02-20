@@ -89,11 +89,11 @@ public class TextCopy
     morning._isCurrentTime = currentTime >= morning._timeStart && currentTime < afternoon._timeStart;
     afternoon._isCurrentTime = currentTime >= afternoon._timeStart && currentTime < evening._timeStart;
     evening._isCurrentTime = currentTime >= evening._timeStart && currentTime < night._timeStart;
-    night._isCurrentTime = currentTime >= night._timeStart && currentTime < night._timeStart;
+    night._isCurrentTime = currentTime >= night._timeStart && currentTime < morning._timeStart;
 
     PartOfDay[] partsOfDay = { morning, afternoon, evening, night };
 
-    string? greeting = "";
+    string? greeting = "Hello";
 
     foreach (PartOfDay partOfDay in partsOfDay)
     {
