@@ -106,7 +106,7 @@ public static class Menu
 
             case ConsoleKey.Q:
             {
-                return "Quit";
+                return MenuOptions.QUIT;
             }
 
             case ConsoleKey.Enter:
