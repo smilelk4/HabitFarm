@@ -8,6 +8,6 @@ class Program
         Console.Title = title;
         new Screen();
         
-        Console.WriteLine("Good bye fellas!");
+        Console.WriteLine("\n\nGood bye fellas!");
     }
 }

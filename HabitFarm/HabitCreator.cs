@@ -9,17 +9,18 @@ public class HabitCreator
   public HabitCreator()
 
   {
-    Console.WriteLine("What is your habit? ");
-    Console.WriteLine(" >>> ");
+    Console.WriteLine("\n\nWhat is your habit? ");
+    Console.Write(" >>> ");
     HabitTitle = Console.ReadLine();
     SaveHabit();
+    Console.WriteLine($"\nHabit {HabitTitle} saved! (Press Enter to continue)");
+    
   }
 
   public static void SaveHabit()
   {
     if (HabitTitle != null) {
       SaveSystem.AppendToSaveDataProperty("Habits", HabitTitle);
-      Console.WriteLine(SaveSystem.GetSaveData());
     }
   }
 

@@ -14,19 +14,23 @@ public class Screen
         TextCopy.WriteIntro();
         
         var confirmedSelection = "";
-        while (confirmedSelection == "")
+        while (confirmedSelection != "Quit")
         {
+            Console.Clear();
             TextCopy.WriteIntro();
             Menu.RenderMenu();
             confirmedSelection = Menu.HandleInput();
 
-        }
+            if (confirmedSelection == "Create Habit")
+            {
+                new HabitCreator();
+                ConsoleKey? key = null;
+                while (key != ConsoleKey.Enter)
+                {
+                    key = Menu.ListenForKey();
+                }
 
-        if (confirmedSelection == "Create Habit")
-        {
-            Console.WriteLine("Making a habit!");
-            new HabitCreator();
-    } 
-        Console.WriteLine(confirmedSelection);
+            }
+        }
     }
 }
