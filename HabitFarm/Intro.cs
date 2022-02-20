@@ -19,7 +19,7 @@ public class PartOfDay
 public class TextCopy
 {
   // fields
-  private static string inputIndicator = "\n >>> ";
+  private static string inputIndicator = " >>> ";
 
   private static string title = @"
        _    _       _       _     ______                   
@@ -33,7 +33,7 @@ public class TextCopy
             Yuka Moribe & Alicia Kim";
   private static string jam = "      for 'Regenerate Game Jam' (Feb 2022)";
   private static string introduction = "\n\n\nWelcome to Habit Farm, where you can grow healthy habits. Choose a plant for each habit, water them whenever you succeed, and watch your plants grow little by little.";
-  private static string promptName = $"\nWhat is your name? {inputIndicator}";
+  private static string promptName = "\nWhat is your name?";
 
   // properties
   public static string? PlayerName { get; set; }
@@ -61,6 +61,7 @@ public class TextCopy
   private static void SavePlayerName()
   {
     Console.WriteLine(promptName);
+    Console.Write(inputIndicator);
     PlayerName = Console.ReadLine();
     SaveSystem.CreateSaveData();
   }

@@ -1,0 +1,15 @@
+/Users/alimirakim/projects/HabitFarm/HabitFarm/bin/Debug/net6.0/HabitFarm
+/Users/alimirakim/projects/HabitFarm/HabitFarm/bin/Debug/net6.0/HabitFarm.deps.json
+/Users/alimirakim/projects/HabitFarm/HabitFarm/bin/Debug/net6.0/HabitFarm.runtimeconfig.json
+/Users/alimirakim/projects/HabitFarm/HabitFarm/bin/Debug/net6.0/HabitFarm.dll
+/Users/alimirakim/projects/HabitFarm/HabitFarm/bin/Debug/net6.0/ref/HabitFarm.dll
+/Users/alimirakim/projects/HabitFarm/HabitFarm/bin/Debug/net6.0/HabitFarm.pdb
+/Users/alimirakim/projects/HabitFarm/HabitFarm/obj/Debug/net6.0/HabitFarm.csproj.AssemblyReference.cache
+/Users/alimirakim/projects/HabitFarm/HabitFarm/obj/Debug/net6.0/HabitFarm.GeneratedMSBuildEditorConfig.editorconfig
+/Users/alimirakim/projects/HabitFarm/HabitFarm/obj/Debug/net6.0/HabitFarm.AssemblyInfoInputs.cache
+/Users/alimirakim/projects/HabitFarm/HabitFarm/obj/Debug/net6.0/HabitFarm.AssemblyInfo.cs
+/Users/alimirakim/projects/HabitFarm/HabitFarm/obj/Debug/net6.0/HabitFarm.csproj.CoreCompileInputs.cache
+/Users/alimirakim/projects/HabitFarm/HabitFarm/obj/Debug/net6.0/HabitFarm.dll
+/Users/alimirakim/projects/HabitFarm/HabitFarm/obj/Debug/net6.0/ref/HabitFarm.dll
+/Users/alimirakim/projects/HabitFarm/HabitFarm/obj/Debug/net6.0/HabitFarm.pdb
+/Users/alimirakim/projects/HabitFarm/HabitFarm/obj/Debug/net6.0/HabitFarm.genruntimeconfig.cache

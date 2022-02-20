@@ -36,7 +36,7 @@ public static class Menu
     
     public static void RenderMenu()
     {
-        Console.WriteLine("\n *****");
+        Console.WriteLine("\n *************************************************************************************");
         for (int index = 0; index < menuOptions.Length; index++)
         {
             if (index == selectedOption)
