@@ -7,6 +7,7 @@
         <Nullable>enable</Nullable>
         <WarningLevel>0</WarningLevel>
         <NoWarn>8601,8618,8604,8602,8618</NoWarn>
+        <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
