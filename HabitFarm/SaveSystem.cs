@@ -2,20 +2,12 @@ using System.Text.Json;
 
 namespace HabitFarm;
 
-// public record SaveDataRecord(
-//     string PlayerName,
-//     DateTime CreatedAt,
-//     DateTime UpdatedAt,
-//     string[]? Habits = null
-// );
-
 public static class SaveSystem
 {
-    public static string PlayerName { get; set; }
-  public static DateTime CreatedAt { get; set; }
-  public static DateTime UpdatedAt { get; set; }
-  public static string[]? Habits { get; set; }
-
+    public static string PlayerName { get; set; } 
+    public static DateTime CreatedAt { get; set; } 
+    public static DateTime UpdatedAt { get; set; } 
+    public static string[]? Habits { get; set; }
 
     private static string _fileName = "saveData.json";
 

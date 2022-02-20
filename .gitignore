@@ -5,6 +5,7 @@
 
 .idea*
 .vscode*
+HabitFarm/saveData.json
 
 # User-specific files
 *.suo
