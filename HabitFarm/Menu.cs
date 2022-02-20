@@ -1,5 +1,13 @@
 namespace HabitFarm;
 
+public class MenuOptions
+{
+  public static string CREATE_HABIT = "Create habit (C)";
+  public static string QUIT = "Quit (Q)";
+  public static string SEEDS = "Seeds (S)";
+  public static string HABITS = "Habits (H)";
+}
+
 enum ValidKey
 {
     Q = 81,
@@ -11,9 +19,14 @@ enum ValidKey
 public static class Menu
 {
     private static int selectedOption = 0;
-    private static string[] menuOptions = {"Create Habit (C)", "Habits (H)", "Seeds (S)", "Quit (Q)", };
-    
-    public static void RenderSelectedOption()
+  private static string[] menuOptions = {
+        MenuOptions.CREATE_HABIT,
+        MenuOptions.HABITS,
+        MenuOptions.SEEDS,
+        MenuOptions.QUIT
+    };
+
+  public static void RenderSelectedOption()
     {
         Console.BackgroundColor = ConsoleColor.White;
         Console.ForegroundColor = ConsoleColor.Black;

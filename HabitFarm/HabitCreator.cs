@@ -13,7 +13,7 @@ public class HabitCreator
     Console.Write(" >>> ");
     HabitTitle = Console.ReadLine();
     SaveHabit();
-    Console.WriteLine($"\nHabit {HabitTitle} saved! (Press Enter to continue)");
+    Console.WriteLine($"\nHabit '{HabitTitle}' saved! (Press Enter to continue)");
     
   }
 

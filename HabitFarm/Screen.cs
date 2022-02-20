@@ -1,9 +1,6 @@
 namespace HabitFarm;
 
-public class Constants
-{
-  public string CREATE_HABIT = "Create habit";
-}
+
 
 public class Screen
 {
@@ -14,14 +11,14 @@ public class Screen
         TextCopy.WriteIntro();
         
         var confirmedSelection = "";
-        while (confirmedSelection != "Quit")
+        while (confirmedSelection != MenuOptions.QUIT)
         {
             Console.Clear();
             TextCopy.WriteIntro();
             Menu.RenderMenu();
             confirmedSelection = Menu.HandleInput();
 
-            if (confirmedSelection == "Create Habit")
+            if (confirmedSelection == MenuOptions.CREATE_HABIT)
             {
                 new HabitCreator();
                 ConsoleKey? key = null;
