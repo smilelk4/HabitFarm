@@ -6,7 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <WarningLevel>0</WarningLevel>
-        <NoWarn>8601,8618,8604,86028618</NoWarn>
+        <NoWarn>8601,8618,8604,8602,8618</NoWarn>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
