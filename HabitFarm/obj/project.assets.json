@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "/Users/alimirakim/.nuget/packages/": {}
+    "/Users/yukamoribe/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/alimirakim/projects/HabitFarm/HabitFarm/HabitFarm.csproj",
+      "projectUniqueName": "/Users/yukamoribe/RiderProjects/HabitFarm/HabitFarm/HabitFarm.csproj",
       "projectName": "HabitFarm",
-      "projectPath": "/Users/alimirakim/projects/HabitFarm/HabitFarm/HabitFarm.csproj",
-      "packagesPath": "/Users/alimirakim/.nuget/packages/",
-      "outputPath": "/Users/alimirakim/projects/HabitFarm/HabitFarm/obj/",
+      "projectPath": "/Users/yukamoribe/RiderProjects/HabitFarm/HabitFarm/HabitFarm.csproj",
+      "packagesPath": "/Users/yukamoribe/.nuget/packages/",
+      "outputPath": "/Users/yukamoribe/RiderProjects/HabitFarm/HabitFarm/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/alimirakim/.nuget/NuGet/NuGet.Config"
+        "/Users/yukamoribe/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -58,7 +58,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/6.0.100/RuntimeIdentifierGraph.json"
       }
     }
   }

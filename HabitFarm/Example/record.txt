@@ -1,0 +1,6 @@
+public record SaveDataRecord(
+    string PlayerName,
+    DateTime CreatedAt,
+    DateTime UpdatedAt,
+    string[]? Habits = null
+);

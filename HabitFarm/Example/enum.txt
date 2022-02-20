@@ -1,0 +1,7 @@
+*** ENUM ***
+
+// to get keys in enum
+foreach(string keyInEnum in Enum.GetNames(typeof(ValidKey)))
+{
+    Console.WriteLine(keyInEnum);
+}
